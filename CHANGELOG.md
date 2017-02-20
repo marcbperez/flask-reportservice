@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. This
 project adheres to [Semantic Versioning](http://semver.org).
 
+## Unreleased
+
+### Added
+
+  - Report module, model and actions to show its HTML preview.
+  - Report HTML templates and base style.
+
 ## 0.3.0 - 2017-02-20
 
 ### Added
