@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <meta name="pdfkit-page-size" content="A4"/>
+    <meta name="pdfkit-orientation" content="Portrait"/>
+    <meta name="pdfkit-dpi" content="2000"/>
+    <style type="text/css">
+      {% include "style.css" %}
+    </style>
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+  </body>
+</html>
