@@ -45,3 +45,19 @@ def xml_item(report_id):
     template = render_template('item.xml', report=report, data=data)
 
     return Response(template, mimetype='text/xml')
+
+
+@report.route('/', methods=['GET'])
+def list():
+    reports = Report.query.all()
+    title = 'Report index'
+
+    return render_template('list.html', reports=reports, title=title)
+
+
+@report.route('/list.xml', methods=['GET'])
+def xml_list():
+    reports = Report.query.all()
+    template = render_template('list.xml', reports=reports)
+
+    return Response(template, mimetype='text/xml')
