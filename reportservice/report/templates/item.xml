@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <id>{{ report.id }}</id>
+  <organization>{{ data.organization }}</organization>
+  <reported>{{ data.reported_at }}</reported>
+  <created>{{ data.created_at }}</created>
+  <items>
+  {% for item in data.inventory %}
+    <item>
+      <name>{{ item.name }}</name>
+      <price>{{ item.price }}</price>
+    </item>
+  {% endfor %}
+  </items>
+</report>
