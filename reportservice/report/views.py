@@ -32,3 +32,16 @@ def pdf_item(report_id):
     pdf = pdfkit.from_string(template, False)
 
     return Response(pdf, mimetype='application/pdf')
+
+
+@report.route('/<int:report_id>.xml', methods=['GET'])
+def xml_item(report_id):
+    report = Report.query.get(report_id)
+
+    if report is None:
+        abort(404)
+
+    data = json.loads(report.type)
+    template = render_template('item.xml', report=report, data=data)
+
+    return Response(template, mimetype='text/xml')
