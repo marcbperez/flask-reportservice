@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+{% for report in reports %}
+  <report>
+    <id>{{ report.id }}</id>
+    <html>{{ url_for('report.item', report_id=report.id) }}</html>
+    <pdf>{{ url_for('report.pdf_item', report_id=report.id) }}</pdf>
+    <xml>{{ url_for('report.xml_item', report_id=report.id) }}</xml>
+  </report>
+{% endfor %}
+</list>

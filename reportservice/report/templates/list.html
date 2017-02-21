@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h1>{{ title }}</h1>
+  <ul>
+  {% for report in reports %}
+    <li>
+      <a href="{{ url_for('report.item', report_id=report.id) }}">{{ report.id }}</a>
+      <a href="{{ url_for('report.pdf_item', report_id=report.id) }}">pdf</a>
+      <a href="{{ url_for('report.xml_item', report_id=report.id) }}">xml</a>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}
