@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. This
 project adheres to [Semantic Versioning](http://semver.org).
 
+## Unreleased
+
+### Added
+
+  - Actions and templates to show a list of reports in HTML and XML format.
+
 ## 0.6.0 - 2017-02-21
 
 ### Added
