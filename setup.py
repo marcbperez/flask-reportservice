@@ -1,10 +1,25 @@
-from setuptools import setup
+import os
+from setuptools import find_packages, setup
 
+# Load README file for long description.
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
+    README = readme.read()
 
+# Allow setup.py to be run from any path.
+os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
+
+# Main setup and configuration.
 setup(
-    name='reportservice',
-    packages=['reportservice'],
+    name='flask-reportservice',
+    version='0.7.0',
+    packages=find_packages(),
     include_package_data=True,
+    license='Apache License Version 2.0',
+    description='A Flask service to export PDF and XML reports..',
+    long_description=README,
+    url='https://github.com/marcbperez/flask-reportservice',
+    author='marcbperez',
+    author_email='marcbperez@users.noreply.github.com',
     install_requires=[
         'flask',
         'flask-sqlalchemy',
@@ -15,8 +30,8 @@ setup(
         'pytest-runner',
     ],
     tests_require=[
-        'pytest',
-        'pytest-cov',
         'pypdf2',
+        'pytest-cov',
+        'pytest', # Keep at the end to avoid conflicts.
     ],
 )
