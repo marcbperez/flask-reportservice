@@ -1,26 +1,33 @@
-# reportservice-flask
+# flask-reportservice
 
-A service to export PDF and XML reports written in Python and the Flask
-framework.
+A Flask service to export PDF and XML reports.
 
 ## Installation
 
-The application depends on python, python-pip, libpq-dev and wkhtmltopdf. The
-following command will install the required packages in most Linux Debian and
-Ubuntu distributions.
+This projects uses Gradle (at least version 3.3) as its build system along with
+a Docker and docker-compose wrapper for continuous development. On Debian Linux
+distributions Gradle can be installed with the following commands:
 
 ```bash
-sudo apt-get install python python-pip libpq-dev wkhtmltopdf
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:cwchien/gradle
+sudo apt-get update
+sudo apt-get install default-jdk gradle=3.4-0ubuntu1
 ```
+
+If you prefer to install Docker and docker-compose (highly recommended) refer to
+the [official instructions][install-docker-compose].
 
 ## Usage
 
-To start the service set the environment variables, install the package and run
-flask. After this the actions will be available at `http://localhost:5000`.
+To start the service get the project and install its dependencies, set the
+environment variables and run flask. The service will be available at
+`http://localhost:5000`.
 
 ```bash
-git clone https://github.com/marcbperez/reportservice-flask
-cd reportservice-flask
+git clone https://github.com/marcbperez/flask-reportservice
+cd flask-reportservice
+sudo gradle dependencies
 
 export FLASK_APP="reportservice"
 export SECRET_KEY="non-production-key"
@@ -30,7 +37,7 @@ export DB_USER="username"
 export DB_PASS="password"
 export DB_NAME="reportservice"
 
-pip install -e .
+gradle install
 flask run
 ```
 
@@ -46,12 +53,19 @@ list of available reports in HTML and XML format.
 
 ## Testing
 
-A coverage report in HTML will be available at `htmlcov/index.html`. It is
-always recommended to perform build and testing tasks inside a virtual
-environment or container.
+Tests will be executed by default every time the project is built. To run them
+manually start a new build or use Gradle's test task. For a complete list of
+tasks check `gradle tasks --all`.
 
 ```bash
-python setup.py test
+gradle test
+```
+
+A continuous build cycle can be executed with `gradle --continuous` inside a
+virtual environment, or with Docker.
+
+```
+sudo docker-compose up
 ```
 
 ## Troubleshooting
@@ -83,8 +97,9 @@ This project is created by [marcbperez][author] and maintained by its
 This project is licensed under the [Apache License Version 2.0][license].
 
 [author]: https://marcbperez.github.io
-[issue-tracker]: https://github.com/marcbperez/reportservice-flask/issues
+[issue-tracker]: https://github.com/marcbperez/flask-reportservice/issues
 [editorconfig]: .editorconfig
 [changelog]: CHANGELOG.md
 [license]: LICENSE
 [semver]: http://semver.org
+[install-docker-compose]: https://docs.docker.com/compose/install/
