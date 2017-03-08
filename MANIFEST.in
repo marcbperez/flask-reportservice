@@ -1,1 +1,4 @@
-graft reportservice/report/templates
+include LICENSE
+include README.rst
+recursive-include reportservice/report/templates *
+recursive-include docs *

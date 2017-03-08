@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file. This
 project adheres to [Semantic Versioning](http://semver.org).
 
+## 0.8.0 - 2017-03-08
+
+### Added
+
+  - Gradle build script for this project.
+  - Docker and docker-compose configuration for this project.
+  - Package README in reStructuredText format.
+
+### Changed
+
+  - The .gitignore list with new buils system ignores.
+  - Project manifest with new resources.
+  - The README with new usage instructions.
+  - The Python package setup.
+  - Project name.
+
 ## 0.7.0 - 2017-02-21
 
 ### Added
