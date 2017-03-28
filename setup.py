@@ -11,11 +11,11 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 # Main setup and configuration.
 setup(
     name='flask-reportservice',
-    version='0.8.0',
+    version='0.8.1',
     packages=find_packages(),
     include_package_data=True,
     license='Apache License Version 2.0',
-    description='A Flask service to export PDF and XML reports..',
+    description='A Flask service to export PDF and XML reports.',
     long_description=README,
     url='https://github.com/marcbperez/flask-reportservice',
     author='marcbperez',
