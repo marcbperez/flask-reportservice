@@ -16,7 +16,7 @@ the following commands:
     sudo apt-get install software-properties-common
     sudo add-apt-repository ppa:cwchien/gradle
     sudo apt-get update
-    sudo apt-get install default-jdk gradle=3.4-0ubuntu1
+    sudo apt-get install default-jdk gradle-3.4
 
 If you prefer to install Docker and docker-compose (highly recommended)
 refer to the `official
@@ -33,8 +33,6 @@ at ``http://localhost:5000``.
 
     git clone https://github.com/marcbperez/flask-reportservice
     cd flask-reportservice
-    sudo gradle dependencies
-
     export FLASK_APP="reportservice"
     export SECRET_KEY="non-production-key"
     export DB_HOST="url.to.database"
@@ -42,9 +40,8 @@ at ``http://localhost:5000``.
     export DB_USER="username"
     export DB_PASS="password"
     export DB_NAME="reportservice"
-
-    gradle install
-    flask run
+    sudo -HE gradle
+    sudo -HE flask run
 
 Reports can be exported to PDF and XML. There are also service actions
 to get a list of available reports in HTML and XML format.
@@ -69,7 +66,14 @@ complete list of tasks check ``gradle tasks --all``.
 
 .. code:: bash
 
-    gradle test
+    export FLASK_APP="reportservice"
+    export SECRET_KEY="non-production-key"
+    export DB_HOST="url.to.database"
+    export DB_PORT="5432"
+    export DB_USER="username"
+    export DB_PASS="password"
+    export DB_NAME="reportservice"
+    sudo -HE gradle test
 
 A continuous build cycle can be executed with ``gradle --continuous``
 inside a virtual environment, or with Docker.

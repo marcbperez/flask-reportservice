@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. This
 project adheres to [Semantic Versioning](http://semver.org).
 
+## 0.8.1 - 2016-03-28
+
+### Fixed
+
+  - Gradle build script and Dockerfile.
+  - README project information and usage.
+
 ## 0.8.0 - 2017-03-08
 
 ### Added
